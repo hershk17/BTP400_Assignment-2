@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:form="http://www.springframework.org/tags/form">
+<head>
+<meta charset="UTF-8">
+<title>Wallet</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link th:href="@{/signin.css}" rel="stylesheet" />
+
+<link
+	href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito&display=swap"
+	rel="stylesheet" type="text/css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+	<div class="container" style="width: 100%; margin: auto; padding: 0px;">
+		<nav class="navbar navbar-inverse" style="border-radius: 0px;">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" target=_blank href="https://banano.cc/">Banano</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="wallet">Wallet</a></li>
+					<li><a href="history">History</a></li>
+
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="logout"><span
+							class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+				</ul>
+			</div>
+		</nav>
+		<br>
+		<div style="width: 70%; margin: auto; padding: 0px;">
+			<h3>
+				<b>Welcome <span th:text="${username}"></span>!</b>
+			</h3>
+			<br>
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th>Category</th>
+						<th>Value</th>
+						<th>QR Code</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Public Address:</td>
+						<td><a
+							th:href="@{'https://creeper.banano.cc/explorer/account/' + ${publicAddr}}"
+							th:text="${publicAddr}" target=_blank></a></td>
+						<td class="image" rowspan="3"><img th:src="${qrImg}"></img></td>
+					</tr>
+					<tr >
+						<td>Account Number:</td>
+						<td><span th:text="${#numbers.formatInteger(accNo,9)}"></span></td>
+					</tr>
+					<tr>
+						<td>Balance:</td>
+						<td><span th:text="${balAmt}"></span> <span style="color:#f0ad4e;">BAN</span></td>
+					</tr>
+				</tbody>
+			</table>
+			<br> <br> <a href="send"><button type="button"
+					id="btn2">Send Money</button></a> <a href="wallet"><button
+					type="button" id="btn1">Refresh</button></a>
+		</div>
+
+	</div>
+
+
+</body>
+</html>

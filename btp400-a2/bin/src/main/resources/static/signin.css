@@ -1,0 +1,102 @@
+@CHARSET "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito&display=swap');
+
+
+#right{
+	text-align: right;
+}
+
+h2 {
+    font-size: 30pt;
+    font-family: 'Nunito', sans-serif;
+}
+
+img {
+	width: 180px;
+	
+}
+
+/* .image{
+	margin-left: auto;
+  	margin-right: auto;
+} */
+
+
+#btn {
+	font-size: 16px;
+	background-color: #333333;
+	border-radius: 5px;
+	width: 345px;
+	height: 40px;
+	color: white;
+	padding-bottom: 4px;
+	padding-top: 4px;
+}
+
+#btn:hover {
+	background-color: #e0dede;	
+}
+
+#btn0 {
+	font-size: 16px;
+	background-color: #222222;
+	border-radius: 5px;
+	width: 180px;
+	height: 40px;
+	color: white;
+	padding-bottom: 4px;
+	padding-top: 4px;
+}
+
+#btn0:hover {
+	background-color: #333333;	
+}
+
+#btn1 {
+	font-size: 16px;
+	background-color: #D8D8D8;
+	border-radius: 5px;
+	width: 180px;
+	height: 40px;
+	color: black;
+	padding-bottom: 4px;
+	padding-top: 4px;
+}
+
+#btn1:hover {
+	background-color: #e0dede;	
+}
+
+#btn2 {
+	font-size: 16px;
+	background-color: #007bff;
+	border-radius: 5px;
+	border-color: #0275d8;
+	width: 180px;
+	height: 40px;
+	color: white;
+	padding-bottom: 4px;
+	padding-top: 4px;
+}
+
+#btn2:hover {
+  background-color: #248dff;
+}
+
+#field {
+	width: 250px;
+	height: 40px;
+}
+
+
+.table > tbody > tr > td {
+     vertical-align: middle;
+}
+
+
+body{
+	font-family: 'Nunito', sans-serif;
+	font-size: 14pt;
+}
+
+

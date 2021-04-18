@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:form="http://www.springframework.org/tags/form">
+<head>
+<meta charset="UTF-8">
+<title>Wallet</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link th:href="@{/signin.css}" rel="stylesheet" />
+
+</head>
+<body>
+	<div style="background-color: #222222; width: 100%;">
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" target=_blank href="https://banano.cc/">Banano</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="wallet">Wallet</a></li>
+					<li><a href="history">History</a></li>
+
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="logout"><span
+							class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<br>
+	<div class="container">
+		<h2>Send Money</h2>
+		Your Balance: <b th:text="${balAmt}"></b> <span
+			style="color: #f0ad4e;">BAN</span><br> <br> <br>
+		<form name="send" th:action="@{/send}" method="post">
+			<label>Send To: </label> <input type='text' name='sendTo'
+				th:value="${sendTo}" id="field" /> <br> <br> <label>Amount:</label>
+			<input type='text' name='amount' th:value="${amount}" id="field" />
+			<br> <br> <br> <input type="submit" value="Send" class="btn"
+				id="btn2">
+		</form>
+		<br> <a href="wallet"><button id="btn1">Back</button></a>
+	</div>
+</body>
+</html>
