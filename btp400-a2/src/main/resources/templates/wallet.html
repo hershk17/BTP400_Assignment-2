@@ -68,7 +68,7 @@
 					</tr>
 					<tr>
 						<td>Balance:</td>
-						<td><span th:text="${balAmt}"></span> <span
+						<td><span th:text="${#numbers.formatDecimal(balAmt, 1,2)}"></span> <span
 							style="color: #f0ad4e;">BAN</span></td>
 					</tr>
 				</tbody>

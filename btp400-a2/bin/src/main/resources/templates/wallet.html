@@ -42,7 +42,8 @@
 		<br>
 		<div style="width: 70%; margin: auto; padding: 0px;">
 			<h3>
-				<b>Welcome <span th:text="${username}"></span>!</b>
+				<b>Welcome <span th:text="${username}"></span>!
+				</b>
 			</h3>
 			<br>
 			<table class="table table-hover table-bordered">
@@ -61,13 +62,14 @@
 							th:text="${publicAddr}" target=_blank></a></td>
 						<td class="image" rowspan="3"><img th:src="${qrImg}"></img></td>
 					</tr>
-					<tr >
+					<tr>
 						<td>Account Number:</td>
 						<td><span th:text="${#numbers.formatInteger(accNo,9)}"></span></td>
 					</tr>
 					<tr>
 						<td>Balance:</td>
-						<td><span th:text="${balAmt}"></span> <span style="color:#f0ad4e;">BAN</span></td>
+						<td><span th:text="${balAmt}"></span> <span
+							style="color: #f0ad4e;">BAN</span></td>
 					</tr>
 				</tbody>
 			</table>
