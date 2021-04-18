@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:form="http://www.springframework.org/tags/form">
+
+<!-- BOOTSTRAP -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link th:href="@{/signin.css}" rel="stylesheet" />
+
+<link
+	href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito&display=swap"
+	rel="stylesheet" type="text/css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<head>
+<meta charset="UTF-8">
+<title>Wallet</title>
+<link th:href="@{/signin.css}" rel="stylesheet" />
+
+</head>
+<body>
+	<div class="container" style="width: 100%; margin: auto; padding: 0px;">
+		<nav class="navbar navbar-inverse" style="border-radius: 0px;">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="wallet">Banano</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="wallet">Wallet</a></li>
+					<li class="active"><a href="history">History</a></li>
+
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="logout"><span
+							class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+				</ul>
+			</div>
+		</nav>
+		<br>
+		<table class="table table-hover table-bordered"
+			style="width: 70%; margin: auto; padding: 0px;">
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Sender / Recipient</th>
+					<th>Amount</th>
+
+					<th>Node Time Stamp</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item: ${history}">
+					<td th:text="${item.getType()}"></td>
+					<td><a th:target="_blank"
+						th:href="@{https://creeper.banano.cc/explorer/block/__${item.getHash()}__}"
+						th:text="${item.getAccount()}"></a></td>
+					<td id="right"><span th:text="${#numbers.formatDecimal(item.getAmount().getAs(UNIT_BAN), 1,2)}"></span> <span style="color:#f0ad4e;">BAN</span></td>
+					<td th:text="${item.getTimestamp()}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<br>
+	</div>
+</body>
+</html>

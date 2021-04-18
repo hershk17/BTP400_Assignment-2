@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:form="http://www.springframework.org/tags/form">
+
+<!-- BOOTSTRAP -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link th:href="@{/signin.css}" rel="stylesheet" />
+
+<link
+	href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nunito&display=swap"
+	rel="stylesheet" type="text/css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BTP400 Assignment 2</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link th:href="@{/signin.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="container text-center">
+		<br>
+		<h2>BTP400 Assignment 2</h2>
+		<h4>
+			by <span th:text="${group}"></span>
+		</h4>
+		<br> <br>
+		<p>
+			<span th:text="${status}"></span>
+		</p>
+		<br> <br> <br> <a href="wallet"><button
+				type="button" id="btn2">Login</button></a> <br> <br> <a
+			href="register"><button type="button" id="btn1">Register</button></a>
+	</div>
+</body>
+</html>
