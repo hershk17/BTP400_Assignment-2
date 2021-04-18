@@ -27,7 +27,7 @@ public class RegisterController {
 			@RequestParam String password2, RedirectAttributes redirAttrs) {
 
 		if (password.equals(password2)) {
-			
+
 			String insert1 = "insert into walletusers(username, password, enabled) values(?,?,?);";
 			String insert2 = "insert into user_roles(username, role) values(?,?);";
 
@@ -69,7 +69,7 @@ public class RegisterController {
 		} else {
 			model.addAttribute("status", "Passwords don't match!");
 		}
-		
+
 		model.addAttribute("group", "Group 4");
 		return "home";
 	}
