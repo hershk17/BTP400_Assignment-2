@@ -20,6 +20,7 @@ import uk.oczadly.karl.jnano.util.WalletUtil;
 import uk.oczadly.karl.jnano.util.blockproducer.BlockProducer;
 import uk.oczadly.karl.jnano.util.blockproducer.BlockProducerSpecification;
 import uk.oczadly.karl.jnano.util.blockproducer.StateBlockProducer;
+import uk.oczadly.karl.jnano.util.workgen.CPUWorkGenerator;
 import uk.oczadly.karl.jnano.util.workgen.OpenCLWorkGenerator;
 import uk.oczadly.karl.jnano.util.workgen.OpenCLWorkGenerator.OpenCLInitializerException;
 
@@ -48,16 +49,17 @@ public class Bank {
 			e.printStackTrace();
 		}
 
-		try {
+//		try {
 
 			blockProducer = new StateBlockProducer(BlockProducerSpecification.builder().defaultRepresentative(rep)
-					.workGenerator(new OpenCLWorkGenerator(0,0,NetworkConstants.BANANO.getWorkDifficulties())) // Local work on gpu
+//					.workGenerator(new OpenCLWorkGenerator(0,0,NetworkConstants.BANANO.getWorkDifficulties())) // Local work on gpu
+					.workGenerator(new CPUWorkGenerator(NetworkConstants.BANANO.getWorkDifficulties())) // Local work on gpu
 //					.workGenerator(new NodeWorkGenerator(rpc))
 					.addressPrefix(prefix).build());
-		} catch (OpenCLInitializerException e) {
+//		} catch (OpenCLInitializerException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//			e.printStackTrace();
+//		}
 
 	}
 	
