@@ -13,16 +13,18 @@
 </head>
 <body>
 	<div class="container">
-	<form th:action="@{/register}" method="post">
-		<h2>Create an Account</h2> <br>
-		<label>Username: </label>&emsp;<input type="text" name='username' th:value="${username}" id="field" /><br><br>
-		<label>Password: </label>&emsp;<input type="password" name='password' th:value="${password}" id="field" /><br><br>
-		<label>Confirm Password: </label>&emsp;<input type="password" name='password2' th:value="${password2}" id="field" /><br><br> 
-		<br>
-		<input type="submit" value="Register" class="btn" id="btn2">
-	</form>
-	<br>
-	<a href="/"><button id="btn1">Return</button></a>
+		<form th:action="@{/register}" method="post">
+			<h2>Create an Account</h2>
+			<br> <label>Username: </label>&emsp;<input type="text"
+				name='username' th:value="${username}" id="field" /><br>
+			<br> <label>Password: </label>&emsp;<input type="password"
+				name='password' th:value="${password}" id="field" /><br>
+			<br> <label>Confirm Password: </label>&emsp;<input
+				type="password" name='password2' th:value="${password2}" id="field" /><br>
+			<br> <br> <input type="submit" value="Register" class="btn"
+				id="btn2">
+		</form>
+		<br> <a href="/"><button id="btn1">Return</button></a>
 	</div>
 </body>
 </html>

@@ -18,7 +18,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import QRCode.QRCodeGenerator;
 import classes.Bank;
-import uk.oczadly.karl.jnano.model.NanoAmount;
 
 @Controller
 public class MainController {
@@ -32,7 +31,7 @@ public class MainController {
 		accountNo = -1;
 		return "home";
 	}
-	
+
 	@RequestMapping(path = "/wallet", method = RequestMethod.GET)
 	public String walletInfo(Model model) throws Exception {
 
@@ -45,7 +44,7 @@ public class MainController {
 		} else {
 			username = principal.toString();
 		}
-		
+
 		if (accountNo == -1) {
 
 			try (Connection connection = DriverManager.getConnection(

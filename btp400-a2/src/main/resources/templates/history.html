@@ -29,7 +29,7 @@
 		<nav class="navbar navbar-inverse" style="border-radius: 0px;">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="wallet">Banano</a>
+					<a class="navbar-brand" target=_blank href="https://banano.cc/">Banano</a>
 				</div>
 				<ul class="nav navbar-nav">
 					<li><a href="wallet">Wallet</a></li>
@@ -60,13 +60,14 @@
 					<td><a th:target="_blank"
 						th:href="@{https://creeper.banano.cc/explorer/block/__${item.getHash()}__}"
 						th:text="${item.getAccount()}"></a></td>
-					<td id="right"><span th:text="${#numbers.formatDecimal(item.getAmount().getAs(UNIT_BAN), 1,2)}"></span> <span style="color:#f0ad4e;">BAN</span></td>
+					<td id="right"><span
+						th:text="${#numbers.formatDecimal(item.getAmount().getAs(UNIT_BAN), 1,2)}"></span>
+						<span style="color: #f0ad4e;">BAN</span></td>
 					<td th:text="${item.getTimestamp()}"></td>
 				</tr>
 			</tbody>
 		</table>
-		<br>
-		<br>
+		<br> <br>
 	</div>
 </body>
 </html>
