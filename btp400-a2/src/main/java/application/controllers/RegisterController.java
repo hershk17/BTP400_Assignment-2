@@ -26,7 +26,7 @@ public class RegisterController {
 	public String handleRegister(Model model, @RequestParam String username, @RequestParam String password,
 			@RequestParam String password2, RedirectAttributes redirAttrs) {
 
-		if (password.equals(password2)) {
+		if (password.equals(password2)) { 
 
 			String insert1 = "insert into walletusers(username, password, enabled) values(?,?,?);";
 			String insert2 = "insert into user_roles(username, role) values(?,?);";
@@ -34,6 +34,9 @@ public class RegisterController {
 			try (Connection connection = DriverManager.getConnection(
 					"jdbc:postgresql://ec2-54-209-43-223.compute-1.amazonaws.com:5432/d19rc88931g1bi", "luwrnpzmqrzvln",
 					"9b76f4cfa5a87feb4cf28e8b90e485b183bca39b2b20c09e323b4a04b524b2ce");
+//			try (Connection connection = DriverManager.getConnection(
+//					"jdbc:postgresql://99.241.206.55:5432/BTP-400-Assignment-2", "postgres",
+//					"123456" );
 					PreparedStatement insertUser = connection.prepareStatement(insert1);
 					PreparedStatement insertUserRole = connection.prepareStatement(insert2)) {
 

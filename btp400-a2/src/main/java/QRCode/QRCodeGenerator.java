@@ -44,7 +44,7 @@ public class QRCodeGenerator {
 	public static void main(String args[]) {
 		System.out.println("test");
 		try {
-			generateQRCodeImage("991A38BED0D022D6622E9AD47513E2A14AC0DA58F15D8AFC81075DEC11CAF29D", 250, 250,
+			generateQRCodeImage("42C3E0A4A28315819313E5AFF56EAB61C654491771634548B02CD8091BEEEBB7", 250, 250,
 					"D:\\image.png");
 		} catch (WriterException e) {
 			e.printStackTrace();
