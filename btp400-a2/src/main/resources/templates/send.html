@@ -34,7 +34,7 @@
 	<br>
 	<div class="container">
 		<h2>Send Money</h2>
-		Your Balance: <b th:text="${balAmt}"></b> <span
+		Your Balance: <b th:text="${#numbers.formatDecimal(balAmt, 1,2)}"></b> <span
 			style="color: #f0ad4e;">BAN</span><br> <br> <br>
 		<form name="send" th:action="@{/send}" method="post">
 			<label>Send To: </label> <input type='text' name='sendTo'
