@@ -2,8 +2,6 @@ package classes;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 
 import uk.oczadly.karl.jnano.model.HexData;
@@ -21,34 +19,29 @@ import uk.oczadly.karl.jnano.util.blockproducer.BlockProducer;
 import uk.oczadly.karl.jnano.util.blockproducer.BlockProducerSpecification;
 import uk.oczadly.karl.jnano.util.blockproducer.StateBlockProducer;
 import uk.oczadly.karl.jnano.util.workgen.CPUWorkGenerator;
-import uk.oczadly.karl.jnano.util.workgen.OpenCLWorkGenerator;
-import uk.oczadly.karl.jnano.util.workgen.OpenCLWorkGenerator.OpenCLInitializerException;
 
 public class Bank {
 
 	public static final NanoAmount.Denomination UNIT_BAN = new NanoAmount.DenominationImpl("Banano", 29);
-	private static HexData seed = new HexData("991A38BED0D022D6622E9AD47513E2A14AC0DA58F15D8AFC81075DEC11CAF29D");
+	private static HexData seed = new HexData("42C3E0A4A28315819313E5AFF56EAB61C654491771634548B02CD8091BEEEBB7");
 	private static final double BAN_NAN_MULT = 10;
-	private final String node = "https://kaliumapi.appditto.com/api";
+//	private final String node = "https://kaliumapi.appditto.com/api";
+	private final String node = "174.93.72.172";
 	private RpcQueryNode rpc;
 	private final String rep = "ban_1fomoz167m7o38gw4rzt7hz67oq6itejpt4yocrfywujbpatd711cjew8gjj";
 	private final String prefix = "ban";
 	private BlockProducer blockProducer;
 
 	public Bank() {
-		try {
-			rpc = new RpcQueryNode(new URL(node));
-
-			blockProducer = new StateBlockProducer(BlockProducerSpecification.builder().defaultRepresentative(rep)
-					// Local work on cpu
-					.workGenerator(new CPUWorkGenerator(NetworkConstants.BANANO.getWorkDifficulties())) 
-					// Local work on gpu
-					// .workGenerator(new OpenCLWorkGenerator(0,0,NetworkConstants.BANANO.getWorkDifficulties())) 
-					.addressPrefix(prefix).build());
-
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
+		//			rpc = new RpcQueryNode(new URL(node));
+					rpc = new RpcQueryNode(node,7072);
+		
+					blockProducer = new StateBlockProducer(BlockProducerSpecification.builder().defaultRepresentative(rep)
+							// Local work on cpu
+							.workGenerator(new CPUWorkGenerator(NetworkConstants.BANANO.getWorkDifficulties())) 
+							// Local work on gpu
+							// .workGenerator(new OpenCLWorkGenerator(0,0,NetworkConstants.BANANO.getWorkDifficulties())) 
+							.addressPrefix(prefix).build());
 	}
 
 	// amount you want to send and the account number you want to send to
