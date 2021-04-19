@@ -2,6 +2,8 @@ package classes;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 import uk.oczadly.karl.jnano.model.HexData;
@@ -25,16 +27,21 @@ public class Bank {
 	public static final NanoAmount.Denomination UNIT_BAN = new NanoAmount.DenominationImpl("Banano", 29);
 	private static HexData seed = new HexData("42C3E0A4A28315819313E5AFF56EAB61C654491771634548B02CD8091BEEEBB7");
 	private static final double BAN_NAN_MULT = 10;
-//	private final String node = "https://kaliumapi.appditto.com/api";
-	private final String node = "174.93.72.172";
+	private final String node = "https://kaliumapi.appditto.com/api";
+//	private final String node = "174.93.72.172";
 	private RpcQueryNode rpc;
 	private final String rep = "ban_1fomoz167m7o38gw4rzt7hz67oq6itejpt4yocrfywujbpatd711cjew8gjj";
 	private final String prefix = "ban";
 	private BlockProducer blockProducer;
 
 	public Bank() {
-		//			rpc = new RpcQueryNode(new URL(node));
-					rpc = new RpcQueryNode(node,7072);
+					try {
+						rpc = new RpcQueryNode(new URL(node));
+					} catch (MalformedURLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+//					rpc = new RpcQueryNode(node,7072);
 		
 					blockProducer = new StateBlockProducer(BlockProducerSpecification.builder().defaultRepresentative(rep)
 							// Local work on cpu
