@@ -37,9 +37,9 @@
 		Your Balance: <b th:text="${#numbers.formatDecimal(balAmt, 1,2)}"></b> <span
 			style="color: #f0ad4e;">BAN</span><br> <br> <br>
 		<form name="send" th:action="@{/send}" method="post">
-			<label>Send To: </label> <input type='text' name='sendTo'
+			<label>Send To: </label> <input type='number' name='sendTo'
 				th:value="${sendTo}" id="field" /> <br> <br> <label>Amount:</label>
-			<input type='text' name='amount' th:value="${amount}" id="field" />
+			<input type='number' name='amount' th:value="${amount}" id="field" />
 			<br> <br> <br> <input type="submit" value="Send"
 				class="btn" id="btn2">
 		</form>
