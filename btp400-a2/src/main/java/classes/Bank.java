@@ -25,7 +25,6 @@ public class Bank {
 	public static final NanoAmount.Denomination UNIT_BAN = new NanoAmount.DenominationImpl("Banano", 29);
 	private static HexData seed = new HexData("42C3E0A4A28315819313E5AFF56EAB61C654491771634548B02CD8091BEEEBB7");
 	private static final double BAN_NAN_MULT = 10;
-//	private final String node = "https://kaliumapi.appditto.com/api";
 	private final String node = "174.93.72.172";
 	private RpcQueryNode rpc;
 	private final String rep = "ban_1fomoz167m7o38gw4rzt7hz67oq6itejpt4yocrfywujbpatd711cjew8gjj";
@@ -33,15 +32,15 @@ public class Bank {
 	private BlockProducer blockProducer;
 
 	public Bank() {
-		//			rpc = new RpcQueryNode(new URL(node));
-					rpc = new RpcQueryNode(node,7072);
-		
-					blockProducer = new StateBlockProducer(BlockProducerSpecification.builder().defaultRepresentative(rep)
-							// Local work on cpu
-							.workGenerator(new CPUWorkGenerator(NetworkConstants.BANANO.getWorkDifficulties())) 
-							// Local work on gpu
-							// .workGenerator(new OpenCLWorkGenerator(0,0,NetworkConstants.BANANO.getWorkDifficulties())) 
-							.addressPrefix(prefix).build());
+		rpc = new RpcQueryNode(node, 7072);
+
+		blockProducer = new StateBlockProducer(BlockProducerSpecification.builder().defaultRepresentative(rep)
+				// Local work on cpu
+				.workGenerator(new CPUWorkGenerator(NetworkConstants.BANANO.getWorkDifficulties()))
+				// Local work on gpu
+				// .workGenerator(new
+				// OpenCLWorkGenerator(0,0,NetworkConstants.BANANO.getWorkDifficulties()))
+				.addressPrefix(prefix).build());
 	}
 
 	// amount you want to send and the account number you want to send to
@@ -114,14 +113,5 @@ public class Bank {
 	public String getPubAddress(int accountNo) {
 		return NanoAccount.fromPrivateKey(WalletUtil.deriveKeyFromSeed(seed, accountNo), prefix).toString();
 	}
-
-//	public static void main(String args[]) throws WalletActionException, OpenCLInitializerException, IOException, RpcException {
-//		Bank b = new Bank();
-//		List<BlockInfo> aList = b.getAccountHistory(0);
-//		for (int i = 0; aList != null && i < aList.size(); ++i) {
-//			BlockInfo binfo = aList.get(i);
-//			System.out.println(binfo.getHash().toString());
-//		}
-//	}
 
 }
