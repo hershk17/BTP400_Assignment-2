@@ -29,6 +29,8 @@ public class Bank {
 	private static final double BAN_NAN_MULT = 10;
 	private final String node = "https://kaliumapi.appditto.com/api";
 //	private final String node = "174.93.72.172";
+
+
 	private RpcQueryNode rpc;
 	private final String rep = "ban_1fomoz167m7o38gw4rzt7hz67oq6itejpt4yocrfywujbpatd711cjew8gjj";
 	private final String prefix = "ban";
@@ -49,6 +51,7 @@ public class Bank {
 							// Local work on gpu
 							// .workGenerator(new OpenCLWorkGenerator(0,0,NetworkConstants.BANANO.getWorkDifficulties())) 
 							.addressPrefix(prefix).build());
+
 	}
 
 	// amount you want to send and the account number you want to send to
@@ -121,14 +124,5 @@ public class Bank {
 	public String getPubAddress(int accountNo) {
 		return NanoAccount.fromPrivateKey(WalletUtil.deriveKeyFromSeed(seed, accountNo), prefix).toString();
 	}
-
-//	public static void main(String args[]) throws WalletActionException, OpenCLInitializerException, IOException, RpcException {
-//		Bank b = new Bank();
-//		List<BlockInfo> aList = b.getAccountHistory(0);
-//		for (int i = 0; aList != null && i < aList.size(); ++i) {
-//			BlockInfo binfo = aList.get(i);
-//			System.out.println(binfo.getHash().toString());
-//		}
-//	}
 
 }
